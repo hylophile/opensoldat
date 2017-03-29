@@ -103,14 +103,14 @@ void Player::update(int x, int y) {
 		//std::cout << "right" << std::endl;
 	}
 	if (moveLeft) {
-		playerBody->ApplyForce(b2Vec2(-100.0f, 0.0f), b2Vec2(getX(), getY()));
+		playerBody->ApplyForce(b2Vec2(-100.0f, 0.0f), b2Vec2(getX(), getY()),true);
 		if (playerBody->GetLinearVelocity().x <= -10.0f) {
 			playerBody->SetLinearVelocity(
 					b2Vec2(-10.0f, playerBody->GetLinearVelocity().y));
 		}
 	}
 	if (moveRight) {
-		playerBody->ApplyForce(b2Vec2(100.0f, 0.0f), b2Vec2(getX(), getY()));
+		playerBody->ApplyForce(b2Vec2(100.0f, 0.0f), b2Vec2(getX(), getY()),true);
 		if (playerBody->GetLinearVelocity().x >= 10.0f) {
 			playerBody->SetLinearVelocity(
 					b2Vec2(10.0f, playerBody->GetLinearVelocity().y));
@@ -118,7 +118,7 @@ void Player::update(int x, int y) {
 	}
 	if (moveUp) {
 		playerBody->SetBullet(true);
-		playerBody->ApplyForce(b2Vec2(0, 100.0f), b2Vec2(getX(), getY()));
+		playerBody->ApplyForce(b2Vec2(0, 100.0f), b2Vec2(getX(), getY()),true);
 	}
 	if (shooting) {
 		shoot();

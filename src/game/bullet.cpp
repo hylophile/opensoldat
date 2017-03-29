@@ -150,7 +150,7 @@ void Bullet::addToWorld(float32 x, float32 y) {
 	bullet->CreateFixture(&bulletFixture);
 	bullet->ApplyForce(
 			b2Vec2(std::sin(owner->getAngle()) * force,
-					std::cos(owner->getAngle()) * force), b2Vec2(x, y));
+             std::cos(owner->getAngle()) * force), b2Vec2(x, y),true);
 }
 
 void Bullet::draw() {
